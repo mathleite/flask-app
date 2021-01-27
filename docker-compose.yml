@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /flask-app/
+    env_file:
+      - flask.env
+    volumes:
+      - type: bind
+        source: ./app
+        target: /flask-app/
+    ports:
+      - "5000:5000"
+    networks:
+      - database
+    tty: true
+
+  database:
+    image: postgres:13.1
+    env_file:
+      - database.env
+    volumes:
+      - type: bind
+        source: ./database/postgres-data
+        target: /var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - database
+
+networks:
+  database:
+    driver: bridge
