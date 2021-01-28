@@ -22,10 +22,10 @@ services:
     image: postgres:13.1
     env_file:
       - database.env
-    volumes:
-      - type: bind
-        source: ./database/postgres-data
-        target: /var/lib/postgresql/data
+#    volumes:
+#      - type: bind
+#        source: ./database/postgres-data
+#        target: /var/lib/postgresql/data
     ports:
       - "5432:5432"
     networks:

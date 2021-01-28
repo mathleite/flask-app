@@ -1,0 +1,4 @@
+{
+  "APPLICATION_ROOT": "/flask-app/",
+  "SECRET_KEY": "penis"
+}
