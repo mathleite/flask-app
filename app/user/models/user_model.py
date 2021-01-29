@@ -1,13 +1,10 @@
-from sqlalchemy import Integer, Column, String, DateTime
+from peewee import CharField, DateTimeField, IntegerField, ForeignKeyField
 
-from database.postgresql.postgresql import Base
+from database.postgresql.models.postgresql_model import PostgreSqlModel
 from utils.date import Date
 
 
-class UserModel(Base):
-    __tablename__ = 'users'
-
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(50))
-    password = Column(String(50))
-    created_at = Column(DateTime, default=Date.get_current_datetime())
+class UserModel(PostgreSqlModel):
+    name: CharField = CharField()
+    password: CharField = CharField()
+    created_at: DateTimeField = DateTimeField(default=Date.get_current_datetime())

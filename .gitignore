@@ -110,6 +110,7 @@ celerybeat.pid
 .env
 .venv
 database.env
+flask.env
 env/
 venv/
 ENV/
