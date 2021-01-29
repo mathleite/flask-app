@@ -15,7 +15,7 @@ def create_app(app_name: str, config_filename: str = ''):
         raise Exception('Database not connected!')
 
     database.get_database().create_tables([
-        UserModel
+        UserModel,
     ])
     app.register_blueprint(user_routes_blueprint)
 
